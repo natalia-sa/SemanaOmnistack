@@ -2,7 +2,7 @@ const Spot = require('../models/Spot');
 const User = require('../models/User');
 
 module.exports = {
-// criação de novo sport
+    // função de procura de um spot que corresponda ao que é pesquisado
     async index(req, res) {
         const { tech } = req.query;
 

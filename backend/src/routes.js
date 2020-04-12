@@ -1,5 +1,3 @@
-// rotas que serão utilizadas
-
 const express = require('express');
 const multer = require('multer');
 const uploadConfig = require('./config/upload')
@@ -12,7 +10,7 @@ const BookingController = require('./controllers/BookingController');
 const routes = express.Router();
 const upload = multer(uploadConfig);
 
-// "/session", etc sao os nomes das rotas criadas
+// faz o login do usuario
 routes.post('/sessions', SessionController.store);
 
 routes.get('/dashboard', DashBoardController.show);
