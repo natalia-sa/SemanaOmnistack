@@ -9,6 +9,8 @@ const express = require('express');
 
 const mongoose = require('mongoose')
 
+const cors = require('cors');
+
 const routes = require('./routes');
 
 // criou a aplicação com a função express
@@ -19,6 +21,7 @@ mongoose.connect('mongodb+srv://natalia:novasenha2@omnistack-oq54w.mongodb.net/s
     useUnifiedTopology: true,
 })
 
+app.use(cors());
 // falando pro express que estamos utilizando o formato json
 app.use(express.json());
 
