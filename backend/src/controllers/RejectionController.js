@@ -1,4 +1,4 @@
-const Booking = require('../models/booking');
+const Booking = require('../models/Booking');
 
 module.exports = {
     async StorageEvent(req, res) {
