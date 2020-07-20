@@ -49,4 +49,4 @@ app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 // usando as rotas importadas
 app.use(routes);
 
-server.listen(3333);
+server.listen(process.env.PORT || 3000);
