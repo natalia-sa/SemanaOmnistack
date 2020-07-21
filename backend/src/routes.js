@@ -13,28 +13,31 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 
-routes.post('/sessions', function(req,res) {
-    SessionController.store;
-});
+// routes.post('/sessions', function(req,res) {
+//     SessionController.store;
+// });
 
-routes.get('/dashboard', DashBoardController.show);
+// routes.get('/dashboard', DashBoardController.show);
 
-routes.get('/spots', SpotController.index);
+// routes.get('/spots', SpotController.index);
 
-routes.post('/spots',upload.single('thumbnail'),function(req,res){
-    SpotController.store;
-} )
+// routes.post('/spots',upload.single('thumbnail'),function(req,res){
+//     SpotController.store;
+// } )
 
-routes.post('/spots/:spot_id/bookings', function(req, res) {
-    BookingController.store;
-});
+// routes.post('/spots/:spot_id/bookings', function(req, res) {
+//     BookingController.store;
+// });
 
-routes.post('./bookings/:booking_id/approvals', function(req,res) {
-    ApprovalController.store;
-});
+// routes.post('./bookings/:booking_id/approvals', function(req,res) {
+//     ApprovalController.store;
+// });
 
-routes.post('./bookings/:booking_id/rejections', function(req, res) {
-    RejectionController.store
+// routes.post('./bookings/:booking_id/rejections', function(req, res) {
+//     RejectionController.store
+// });
+routes.get('/', function(req,res) {
+    res.send("hello world");
 });
 
 module.exports = routes;
