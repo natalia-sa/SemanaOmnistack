@@ -43,8 +43,8 @@ const server = http.Server(app);
 app.use(cors());
 
 // sinalizando para o express que sera utilizado o formato json
-app.use(express.json());
-app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
+// app.use(express.json());
+// app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 
 // usando as rotas importadas
 app.get('/', function(req, res) {
