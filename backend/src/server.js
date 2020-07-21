@@ -47,6 +47,8 @@ app.use(express.json());
 app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 
 // usando as rotas importadas
-app.use(routes);
+app.get('/', function(req, res) {
+    res.send('hello world');
+  });
 console.log("server running at port 3000");
 server.listen(process.env.PORT || 3000);
