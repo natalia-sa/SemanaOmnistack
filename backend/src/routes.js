@@ -13,7 +13,9 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 
-routes.post('/sessions', SessionController.store);
+routes.post('/sessions', function(req,res) {
+    SessionController.store;
+});
 
 routes.get('/dashboard', DashBoardController.show);
 
