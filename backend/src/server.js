@@ -4,11 +4,11 @@
 // req.body = acessar corpo da requisição (criação, edição)
 
 const express = require('express');
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const cors = require('cors');
-const routes = require('./routes');
+// const routes = require('./routes');
 const path = require('path');
-const socketio = require('socket.io');
+// const socketio = require('socket.io');
 const http = require('http');
 
 // cria a aplicação com a função express
