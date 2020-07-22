@@ -14,7 +14,11 @@ const http = require('http');
 // cria a aplicação com a função express
 const app = express();
 const server = http.Server(app);
-app.use(cors());
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    app.use(cors());
+    next();
+});
 // para o server ouvir o protocolo webSocket
 // precisamos da variavel io para anotar os usuarios da aplicação
 const io = socketio(server);
@@ -42,16 +46,13 @@ mongoose.connect('mongodb+srv://natalia:novasenha2@omnistack-oq54w.mongodb.net/s
 })
 
 
-var corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+
 // sinalizando para o express que sera utilizado o formato json
 app.use(express.json());
 app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 
 // usando as rotas importadas
-app.get('/',cors(corsOptions), function(req, res) {
+app.get('/', function(req, res) {
     res.send('Server running');
   });
 app.use(routes);
