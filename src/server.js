@@ -14,6 +14,7 @@ const http = require('http');
 // cria a aplicação com a função express
 const app = express();
 const server = http.Server(app);
+app.use(cors());
 // para o server ouvir o protocolo webSocket
 // precisamos da variavel io para anotar os usuarios da aplicação
 const io = socketio(server);
@@ -40,7 +41,7 @@ mongoose.connect('mongodb+srv://natalia:novasenha2@omnistack-oq54w.mongodb.net/s
     useUnifiedTopology: true,
 })
 
-app.use(cors());
+
 
 // sinalizando para o express que sera utilizado o formato json
 app.use(express.json());
@@ -48,7 +49,7 @@ app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 
 // usando as rotas importadas
 app.get('/', function(req, res) {
-    res.send('hello world');
+    res.send('Server running');
   });
 app.use(routes);
 server.listen(process.env.PORT || 3000);
