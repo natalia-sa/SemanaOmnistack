@@ -42,13 +42,16 @@ mongoose.connect('mongodb+srv://natalia:novasenha2@omnistack-oq54w.mongodb.net/s
 })
 
 
-
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 // sinalizando para o express que sera utilizado o formato json
 app.use(express.json());
 app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 
 // usando as rotas importadas
-app.get('/', function(req, res) {
+app.get('/',cors(corsOptions), function(req, res) {
     res.send('Server running');
   });
 app.use(routes);
